@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dial Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Dial Tracker</h1>
+    <p id="today">Today</p>
+    <button id="signout" class="goal-button" hidden>Sign out</button>
+  </header>
+
+  <section id="signin" class="card">
+    <h2>Sign in</h2>
+    <p id="signin-message">Sign in with your email and password.</p>
+    <form id="signin-form">
+      <input type="email" id="email" autocomplete="username" placeholder="Email" required>
+      <input type="password" id="password" autocomplete="current-password" placeholder="Password (8+ characters)" minlength="8" required>
+      <button type="submit">Sign in</button>
+      <button type="button" id="signup-button" class="goal-button">First time? Create your account</button>
+    </form>
+  </section>
+
+  <div id="app" hidden>
+  <main id="counters">
+    <section class="card" data-key="dials">
+      <h2>Dials</h2>
+      <p class="count">0</p>
+      <div class="buttons">
+        <button class="minus">−</button>
+        <button class="plus">+</button>
+      </div>
+    </section>
+
+    <section class="card" data-key="conversations">
+      <h2>Conversations</h2>
+      <p class="count">0</p>
+      <div class="buttons">
+        <button class="minus">−</button>
+        <button class="plus">+</button>
+      </div>
+    </section>
+
+    <section class="card" data-key="appointments">
+      <h2>Appointments set</h2>
+      <p class="count">0</p>
+      <div class="buttons">
+        <button class="minus">−</button>
+        <button class="plus">+</button>
+      </div>
+    </section>
+
+    <section class="card" data-key="messages">
+      <h2>Texts / emails</h2>
+      <p class="count">0</p>
+      <div class="buttons">
+        <button class="minus">−</button>
+        <button class="plus">+</button>
+      </div>
+    </section>
+  </main>
+
+  <section id="history" class="card">
+    <div class="history-top">
+      <h2>History</h2>
+      <div class="history-controls">
+        <select id="metric">
+          <option value="dials">Dials</option>
+          <option value="conversations">Conversations</option>
+          <option value="appointments">Appointments set</option>
+          <option value="messages">Texts / emails</option>
+        </select>
+        <select id="range">
+          <option value="7">Last 7 days</option>
+          <option value="30">Last 30 days</option>
+        </select>
+      </div>
+    </div>
+    <div class="chart-box">
+      <canvas id="chart"></canvas>
+    </div>
+  </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.116.0/dist/umd/supabase.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
